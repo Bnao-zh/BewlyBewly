@@ -109,7 +109,7 @@ function handleResetSettings() {
 }
 
 async function checkGitHubRelease() {
-  const apiUrl = `https://api.github.com/repos/BewlyBewly/BewlyBewly/releases/latest`
+  const apiUrl = `https://api.github.com/repos/Bnao-zh/BewlyBewly/releases/latest`
 
   try {
     const response = await fetch(apiUrl)
@@ -140,7 +140,7 @@ async function checkGitHubRelease() {
 
         <a
           v-if="hasNewVersion"
-          href="https://github.com/hakadao/BewlyBewly/releases" target="_blank"
+          href="https://github.com/Bnao-zh/BewlyBewly/releases" target="_blank"
           pos="absolute bottom-0 right-0" transform="translate-x-50%" un-text="xs $bew-text-1" p="y-1 x-2" bg="$bew-fill-1"
           rounded-12
         >
@@ -159,10 +159,10 @@ async function checkGitHubRelease() {
         </p>
         <p text-center>
           <a
-            href="https://github.com/hakadao/BewlyBewly/releases" target="_blank"
+            href="https://github.com/Bnao-zh/BewlyBewly/releases" target="_blank"
             un-text="sm color-$bew-text-2 hover:color-$bew-text-3"
           >
-            v{{ version }} - Farewell
+            v{{ version }} - Fix
           </a>
         </p>
       </section>
@@ -178,7 +178,7 @@ async function checkGitHubRelease() {
           </h3>
           <div grid="~ xl:cols-6 lg:cols-5 md:cols-4 cols-3 gap-2">
             <a
-              href="https://github.com/hakadao/BewlyBewly" target="_blank"
+              href="https://github.com/Bnao-zh/BewlyBewly" target="_blank"
               class="link-card"
               bg="black dark:white !opacity-10 !hover:opacity-20"
               un-text="black dark:white"
@@ -318,6 +318,21 @@ async function checkGitHubRelease() {
             <img
               src="https://contrib.rocks/image?repo=hakadao/BewlyBewly"
               w-full
+            >
+          </a>
+          <a
+            href="https://github.com/Bnao-zh" target="_blank"
+            mt-3
+            flex="~ items-center gap-2"
+            w-fit
+            rounded="$bew-radius"
+            bg="hover:$bew-fill-2"
+            duration-300
+          >
+            <img
+              src="https://github.com/Bnao-zh.png"
+              alt="Bnao-zh"
+              w-40px h-40px rounded-full
             >
           </a>
         </section>
