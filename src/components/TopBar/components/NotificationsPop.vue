@@ -9,7 +9,7 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
-const list = computed((): { name: string, url: string, unreadCount: number, icon: string }[] => [
+const list = ref<{ name: string, url: string, unreadCount: number, icon: string }[]>([
   {
     name: t('topbar.noti_dropdown.replys'),
     url: 'https://message.bilibili.com/#/reply',
@@ -42,6 +42,17 @@ const list = computed((): { name: string, url: string, unreadCount: number, icon
   },
 ])
 
+watch(
+  () => t('topbar.noti_dropdown.replys'),
+  () => {
+    list.value[0].name = t('topbar.noti_dropdown.replys')
+    list.value[1].name = t('topbar.noti_dropdown.mentions')
+    list.value[2].name = t('topbar.noti_dropdown.likes')
+    list.value[3].name = t('topbar.noti_dropdown.messages')
+    list.value[4].name = t('topbar.noti_dropdown.chats')
+  },
+)
+
 onMounted(() => {
   getUnreadMessageCount()
 })
@@ -51,9 +62,9 @@ function getUnreadMessageCount() {
     if (res.code === 0) {
       const resData = res.data
 
-      list.value[0].unreadCount = resData.recv_reply
+      list.value[0].unreadCount = resData.recv_reply ?? resData.reply ?? 0
       list.value[1].unreadCount = resData.at
-      list.value[2].unreadCount = resData.recv_like
+      list.value[2].unreadCount = resData.recv_like ?? resData.like ?? 0
       list.value[3].unreadCount = resData.sys_msg
     }
   }).catch(() => {
