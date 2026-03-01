@@ -330,7 +330,7 @@ async function checkGitHubRelease() {
             duration-300
           >
             <img
-              src="https://github.com/Bnao-zh.png"
+              src="https://gh-proxy.org/https://avatars.githubusercontent.com/u/107306571?v=4"
               alt="Bnao-zh"
               w-40px h-40px rounded-full
             >
